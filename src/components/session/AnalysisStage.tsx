@@ -81,17 +81,20 @@ export default function AnalysisStage({ question, session }: AnalysisStageProps)
 
       <Card>
         <CardHeader>
-          <CardTitle>Self-Assessment</CardTitle>
+          <CardTitle>Reflect and Analyze</CardTitle>
+          <p className="text-sm text-muted-foreground mt-2">
+            Look back on your solution and extract insights.
+          </p>
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
             <label className="block text-sm font-medium mb-2">
-              Summary of Your Solution (required)
+              Summary of Your Solution
             </label>
             <Textarea
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
-              placeholder="Summarize your approach, what worked well, and what could be improved..."
+              placeholder="Explain how your solution worked and what challenges you faced..."
               rows={6}
             />
           </div>
@@ -122,26 +125,34 @@ export default function AnalysisStage({ question, session }: AnalysisStageProps)
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Revised Time Complexity (optional)
-              </label>
+          <div>
+            <label className="block text-sm font-medium mb-3">
+              Revised Complexities (optional)
+            </label>
+            <p className="text-sm text-muted-foreground mb-3">
+              If your actual implementation differs, update your time/space complexity here.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Revised Time Complexity
+                </label>
               <Input
                 value={revisedTime}
                 onChange={(e) => setRevisedTime(e.target.value)}
                 placeholder="e.g., O(n)"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Revised Space Complexity (optional)
-              </label>
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Revised Space Complexity
+                </label>
               <Input
                 value={revisedSpace}
                 onChange={(e) => setRevisedSpace(e.target.value)}
                 placeholder="e.g., O(1)"
               />
+              </div>
             </div>
           </div>
         </CardContent>

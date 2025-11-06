@@ -53,7 +53,10 @@ export default function IdeaStage({ question, session }: IdeaStageProps) {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Your Approach</CardTitle>
+          <CardTitle>Plan Your Approach</CardTitle>
+          <p className="text-sm text-muted-foreground mt-2">
+            Outline how you'd solve this step by step before writing any code.
+          </p>
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
@@ -63,7 +66,7 @@ export default function IdeaStage({ question, session }: IdeaStageProps) {
             <Textarea
               value={approach}
               onChange={(e) => setApproach(e.target.value)}
-              placeholder="Describe your high-level approach to solving this problem..."
+              placeholder="Briefly explain the logic behind your plan — not the code itself..."
               rows={6}
             />
             <div className="text-xs text-muted-foreground mt-1">
@@ -75,6 +78,9 @@ export default function IdeaStage({ question, session }: IdeaStageProps) {
             <label className="block text-sm font-medium mb-2">
               Data Structures (at least 1 required)
             </label>
+            <p className="text-sm text-muted-foreground mb-3">
+              List which data structures you'll use and why.
+            </p>
             <div className="space-y-2">
               {dataStructures.map((ds, index) => (
                 <div key={index} className="flex gap-2">
@@ -101,9 +107,14 @@ export default function IdeaStage({ question, session }: IdeaStageProps) {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">Time Complexity</label>
+          <div>
+            <label className="block text-sm font-medium mb-3">Complexity Estimates</label>
+            <p className="text-sm text-muted-foreground mb-3">
+              Estimate the time and space complexity of your plan.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Time Complexity</label>
               <Input
                 value={timeComplexity}
                 onChange={(e) => setTimeComplexity(e.target.value)}
@@ -117,6 +128,7 @@ export default function IdeaStage({ question, session }: IdeaStageProps) {
                 onChange={(e) => setSpaceComplexity(e.target.value)}
                 placeholder="e.g., O(1)"
               />
+              </div>
             </div>
           </div>
         </CardContent>
@@ -125,6 +137,9 @@ export default function IdeaStage({ question, session }: IdeaStageProps) {
       <Card>
         <CardHeader>
           <CardTitle>Pseudocode</CardTitle>
+          <p className="text-sm text-muted-foreground mt-2">
+            Write rough pseudocode to visualize your logic.
+          </p>
         </CardHeader>
         <CardContent>
           <Textarea

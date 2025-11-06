@@ -60,8 +60,13 @@ export default function CodeStage({ question, session }: CodeStageProps) {
       <div className="grid lg:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-          <div className="flex items-center justify-between">
-              <CardTitle>Code Editor</CardTitle>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Implement Your Solution</CardTitle>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Write clean, working code that follows your plan.
+                </p>
+              </div>
               <Button onClick={handleRun} disabled={isRunning} className="gap-2">
                 <Play className="w-4 h-4" />
                 {isRunning ? "Running..." : "Run Tests"}

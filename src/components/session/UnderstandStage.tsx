@@ -85,15 +85,18 @@ export default function UnderstandStage({ question, session }: UnderstandStagePr
 
       <Card>
         <CardHeader>
-          <CardTitle>Understanding the Problem</CardTitle>
+          <CardTitle>Understand the Problem Clearly</CardTitle>
+          <p className="text-sm text-muted-foreground mt-2">
+            Before writing code, make sure you fully understand what's being asked.
+          </p>
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
             <label className="block text-sm font-medium mb-2">
-              Observations (at least 3)
+              Key Insights (at least 3)
             </label>
             <p className="text-sm text-muted-foreground mb-3">
-              What patterns, hints, or rules do you notice?
+              List 2–4 important facts, patterns, or hints you notice in the problem.
             </p>
             <div className="space-y-2">
               {keyPoints.map((point, index) => (
@@ -126,7 +129,7 @@ export default function UnderstandStage({ question, session }: UnderstandStagePr
               Edge Cases (at least 2)
             </label>
             <p className="text-sm text-muted-foreground mb-3">
-              Which tricky inputs could challenge your logic?
+              Think of unusual or extreme cases that might break your logic.
             </p>
             <div className="space-y-2">
               {edgeCases.map((edgeCase, index) => (
@@ -159,12 +162,12 @@ export default function UnderstandStage({ question, session }: UnderstandStagePr
               Restate in Your Own Words
             </label>
             <p className="text-sm text-muted-foreground mb-3">
-              Explain what the task really asks for.
+              Summarize what the problem asks for in a clear sentence or two.
             </p>
             <Textarea
               value={restatement}
               onChange={(e) => setRestatement(e.target.value)}
-              placeholder="Explain what this problem is asking for in your own words..."
+              placeholder="Explain what this problem is asking for in your own words…"
               rows={6}
               className="font-mono"
             />
