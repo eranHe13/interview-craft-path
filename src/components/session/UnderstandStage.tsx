@@ -85,20 +85,23 @@ export default function UnderstandStage({ question, session }: UnderstandStagePr
 
       <Card>
         <CardHeader>
-          <CardTitle>Your Understanding</CardTitle>
+          <CardTitle>Understanding the Problem</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
             <label className="block text-sm font-medium mb-2">
-              Key Points (at least 3 required)
+              Observations (at least 3)
             </label>
+            <p className="text-sm text-muted-foreground mb-3">
+              What patterns, hints, or rules do you notice?
+            </p>
             <div className="space-y-2">
               {keyPoints.map((point, index) => (
                 <div key={index} className="flex gap-2">
                   <Input
                     value={point}
                     onChange={(e) => updateKeyPoint(index, e.target.value)}
-                    placeholder={`Key point ${index + 1}`}
+                    placeholder={`Observation ${index + 1}`}
                   />
                   {keyPoints.length > 3 && (
                     <Button
@@ -113,15 +116,18 @@ export default function UnderstandStage({ question, session }: UnderstandStagePr
               ))}
               <Button variant="outline" size="sm" onClick={addKeyPoint} className="gap-2">
                 <Plus className="w-4 h-4" />
-                Add Key Point
+                Add Observation
               </Button>
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium mb-2">
-              Edge Cases (at least 2 required)
+              Edge Cases (at least 2)
             </label>
+            <p className="text-sm text-muted-foreground mb-3">
+              Which tricky inputs could challenge your logic?
+            </p>
             <div className="space-y-2">
               {edgeCases.map((edgeCase, index) => (
                 <div key={index} className="flex gap-2">
@@ -150,8 +156,11 @@ export default function UnderstandStage({ question, session }: UnderstandStagePr
 
           <div>
             <label className="block text-sm font-medium mb-2">
-              Restate Problem in Your Own Words (min 200 characters)
+              Restate in Your Own Words
             </label>
+            <p className="text-sm text-muted-foreground mb-3">
+              Explain what the task really asks for.
+            </p>
             <Textarea
               value={restatement}
               onChange={(e) => setRestatement(e.target.value)}
